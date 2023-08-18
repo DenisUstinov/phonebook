@@ -54,7 +54,7 @@ class ConsoleInterface:
         """
         print("\nСписок записей:")
         for index, record in enumerate(records, start=(current_page - 1) * records_per_page + 1):
-            print(f"\nЗапись {index}:")
+            print(f"\nИдентификатор записи для редактирования {index}:")
             for key, value in record.items():
                 print(f"{key}: {value}")
 
