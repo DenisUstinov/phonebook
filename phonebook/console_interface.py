@@ -54,7 +54,7 @@ class ConsoleInterface:
         """
         print("\nСписок записей:")
         for index, record in enumerate(records, start=(current_page - 1) * records_per_page + 1):
-            print(f"\nИдентификатор записи для редактирования {index}:")
+            print(f"\nЗапись {index}:")
             for key, value in record.items():
                 print(f"{key}: {value}")
 
@@ -100,6 +100,7 @@ class ConsoleInterface:
         Добавляет новую запись в базу данных.
         """
         record = {
+            'id': str(self.db.get_records_count() + 1),
             'last_name': input("Фамилия: "),
             'first_name': input("Имя: "),
             'middle_name': input("Отчество: "),
@@ -114,7 +115,7 @@ class ConsoleInterface:
         """
         Редактирует выбранную запись в базе данных.
         """
-        record_number_input = input("Введите номер записи для редактирования: ")
+        record_number_input = input("Введите id записи для редактирования: ")
 
         if not record_number_input.isdigit():
             print("Некорректный ввод. Введите число.")
@@ -127,6 +128,7 @@ class ConsoleInterface:
             return
 
         new_record = {
+            'id': str(record_number_input),
             'last_name': input("Новая фамилия: "),
             'first_name': input("Новое имя: "),
             'middle_name': input("Новое отчество: "),
@@ -144,7 +146,7 @@ class ConsoleInterface:
         """
         print("Поиск записей:")
         print("Введите данные для поиска в формате: фильтр=значение, если параметр не один, через запятую")
-        print("Поддерживаемые фильтры: last_name, first_name, middle_name, organization, work_phone, personal_phone")
+        print("Поддерживаемые фильтры: id, last_name, first_name, middle_name, organization, work_phone, personal_phone")
         search_data = input("Введите данные для поиска: ")
 
         search_filters = {}
@@ -158,7 +160,7 @@ class ConsoleInterface:
         if records:
             print("\nРезультаты поиска:")
             for index, record in enumerate(records, start=1):
-                print(f"\n{index} - найденная запись:")
+                print(f"\nЗапись {index}")
                 for key, value in record.items():
                     print(f"{key}: {value}")
         else:
