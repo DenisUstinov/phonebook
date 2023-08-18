@@ -158,7 +158,7 @@ class ConsoleInterface:
         if records:
             print("\nРезультаты поиска:")
             for index, record in enumerate(records, start=1):
-                print(f"\nЗапись {index}:")
+                print(f"\n{index} - найденная запись:")
                 for key, value in record.items():
                     print(f"{key}: {value}")
         else:
