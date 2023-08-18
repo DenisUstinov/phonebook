@@ -1,4 +1,4 @@
-{"last_name": "111111", "first_name": "111111", "3", "organization": "11111111", "work_phone": "111111111", "personal_phone": "111111111"}
+{"last_name": "111111", "first_name": "111111", "middle_name": "1111111", "organization": "11111111", "work_phone": "111111111", "personal_phone": "111111111"}
 {"last_name": "111111", "first_name": "2", "middle_name": "\u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447", "organization": "Effective Mobile", "work_phone": "89216661324", "personal_phone": "89234562727"}
 {"last_name": "111111", "first_name": "\u0414\u0435\u043d\u0438\u0441", "middle_name": "\u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447", "organization": "Effective Mobile", "work_phone": "89216661324", "personal_phone": "89234562727"}
 {"last_name": "111111", "first_name": "111111", "middle_name": "\u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447", "organization": "Effective Mobile", "work_phone": "89216661324", "personal_phone": "89234562727"}
