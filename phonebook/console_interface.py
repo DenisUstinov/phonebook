@@ -1,5 +1,5 @@
 from typing import List, Dict
-from phonebook.text_db import TextDB
+from phonebook.text_db import DataAccessObject
 
 
 class ConsoleInterface:
@@ -7,13 +7,13 @@ class ConsoleInterface:
     Класс ConsoleInterface предоставляет консольный интерфейс для взаимодействия с базой данных.
     """
 
-    def __init__(self, db_instance: TextDB):
+    def __init__(self, db_instance: DataAccessObject):
         """
-        Инициализация объекта ConsoleInterface для взаимодействия с базой данных.
+        Инициализация объекта DataAccessObject для взаимодействия с базой данных.
 
-        :param db_instance: Экземпляр класса работы с БД.
+        :param db_instance: Экземпляр класса DataAccessObject.
         """
-        self.db: TextDB = db_instance
+        self.db: DataAccessObject = db_instance
 
     def run(self) -> None:
         """

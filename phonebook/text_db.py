@@ -2,8 +2,31 @@ import json
 from typing import List, Dict, Union
 
 
-class TextDB:
-    def __init__(self, file_path: str) -> None:
+class DataAccessObject:
+    def connect(self, file_path: str) -> None:
+        pass
+    
+    def add_record(self, record: Dict[str, Union[str, int]]) -> None:
+        pass
+
+    def get_records_by_filters(self, filters: Dict[str, Union[str, int]]) -> List[Dict[str, Union[str, int]]]:
+        pass
+
+    def get_records(self, num_records_start: int, num_records: int) -> List[Dict[str, Union[str, int]]]:
+        pass
+
+    def edit_record(self, record_number: int, new_record: Dict[str, Union[str, int]]) -> None:
+        pass
+
+    def get_records_count(self) -> int:
+        pass
+
+
+class TextDB(DataAccessObject):
+    def __init__(self):
+        self.file_path = None
+
+    def connect(self, file_path: str) -> None:
         """
         Инициализация объекта TextDB для работы с базой данных на текстовых файлах.
 
