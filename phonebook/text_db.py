@@ -3,22 +3,56 @@ from typing import List, Dict, Union
 
 
 class DataAccessObject:
-    def connect(self, file_path: str) -> None:
+    def connect(self, connection_info: str) -> None:
+        """
+        Инициализирует соединение с базой данных.
+
+        :param connection_info: Информация о соединении, может быть путем к файлу или деталями подключения.
+        """
         pass
-    
+
     def add_record(self, record: Dict[str, Union[str, int]]) -> None:
+        """
+        Добавляет новую запись в базу данных.
+
+        :param record: Словарь с данными записи.
+        """
         pass
 
     def get_records_by_filters(self, filters: Dict[str, Union[str, int]]) -> List[Dict[str, Union[str, int]]]:
+        """
+        Возвращает список записей, соответствующих заданным фильтрам.
+
+        :param filters: Словарь с фильтрами для поиска записей.
+        :return: Список словарей с данными записей.
+        """
         pass
 
     def get_records(self, num_records_start: int, num_records: int) -> List[Dict[str, Union[str, int]]]:
+        """
+        Получает определенное количество записей из базы данных.
+
+        :param num_records_start: Номер записи, с которой начать выборку.
+        :param num_records: Количество записей для выборки.
+        :return: Список словарей с данными записей.
+        """
         pass
 
     def edit_record(self, record_number: int, new_record: Dict[str, Union[str, int]]) -> None:
+        """
+        Редактирует существующую запись в базе данных.
+
+        :param record_number: Номер записи для редактирования.
+        :param new_record: Словарь с новыми данными для записи.
+        """
         pass
 
     def get_records_count(self) -> int:
+        """
+        Возвращает общее количество записей в базе данных.
+
+        :return: Общее количество записей.
+        """
         pass
 
 
