@@ -24,11 +24,11 @@ class DataAccessObject:
 
 class TextDB(DataAccessObject):
     def __init__(self):
-        self.file_path = None
+        self.file_path: str = ''
 
     def connect(self, file_path: str) -> None:
         """
-        Инициализация объекта TextDB для работы с базой данных на текстовых файлах.
+        Устанавливает путь к файлу базы данных.
 
         :param file_path: Путь к файлу базы данных.
         """
