@@ -59,6 +59,9 @@ class ConsoleInterface:
                 print(f"{key}: {value}")
 
     def show_records(self) -> None:
+        """
+        Организует вывод записей постранично.
+        """
         records_per_page = 10
         current_page = 1
 
