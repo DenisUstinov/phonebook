@@ -88,7 +88,7 @@ class TextDB(DataAccessObject):
         with open(self.file_path, 'r') as file:
             lines = file.readlines()
 
-        records = [json.loads(line.strip()) for line in lines]
+        records = [json.loads(line) for line in lines]
 
         for key, value in filters.items():
             records = [record for record in records if record.get(key) == value]
@@ -106,7 +106,7 @@ class TextDB(DataAccessObject):
         with open(self.file_path, 'r') as file:
             lines = file.readlines()
 
-        records = [json.loads(line.strip()) for line in lines[num_records_start:num_records_start + num_records]]
+        records = [json.loads(line) for line in lines[num_records_start:num_records_start + num_records]]
 
         return records
 
