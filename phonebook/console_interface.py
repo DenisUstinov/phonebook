@@ -171,10 +171,10 @@ class ConsoleInterface:
 
     def get_valid_phone(self, prompt: str) -> str:
         """
-        Получает от пользователя действительный телефонный номер.
+        Проводит валидацию телефонного номера.
 
         :param prompt: Подсказка для ввода.
-        :return: Действительный телефонный номер.
+        :return: Проверенный номер телефона.
         """
         while True:
             phone: str = input(prompt)
