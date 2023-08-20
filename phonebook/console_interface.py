@@ -9,9 +9,9 @@ class ConsoleInterface:
 
     def __init__(self, db_instance: DataAccessObject):
         """
-        Инициализация объекта DataAccessObject для взаимодействия с базой данных.
+        Инициализация объекта для взаимодействия с базой данных.
 
-        :param db_instance: Экземпляр класса DataAccessObject.
+        :param db_instance: Экземпляр класса для взаимодействия с базой данных.
         """
         self.db: DataAccessObject = db_instance
 
@@ -28,7 +28,7 @@ class ConsoleInterface:
             print("4. Поиск записей по одной или нескольким характеристикам")
             print("5. Выход")
 
-            choice = input("Введите номер действия: ")
+            choice: str = input("Введите номер действия: ")
 
             if choice == '1':
                 self.show_records()
@@ -62,11 +62,11 @@ class ConsoleInterface:
         """
         Организует вывод записей постранично.
         """
-        records_per_page = 10
-        current_page = 1
+        records_per_page: int = 10
+        current_page: int = 1
 
-        num_records = self.db.get_records_count()
-        all_pages = (num_records + records_per_page - 1) // records_per_page
+        num_records: int = self.db.get_records_count()
+        all_pages: int = (num_records + records_per_page - 1) // records_per_page
 
         while True:
             records = self.db.get_records(
@@ -86,7 +86,7 @@ class ConsoleInterface:
             print("3. Вернуться в меню")
 
             while True:
-                choice = input("Выберите действие: ")
+                choice: str = input("Выберите действие: ")
                 if choice == '1' and current_page < all_pages:
                     current_page += 1
                     break
@@ -118,13 +118,13 @@ class ConsoleInterface:
         """
         Редактирует выбранную запись в базе данных.
         """
-        record_number_input = input("Введите id записи для редактирования: ")
+        record_number_input: str = input("Введите id записи для редактирования: ")
 
         if not record_number_input.isdigit():
             print("Некорректный ввод. Введите число.")
             return
 
-        record_number = int(record_number_input) - 1
+        record_number: int = int(record_number_input) - 1
 
         if not (0 <= record_number <= self.db.get_records_count()):
             print("Некорректный номер записи.")
@@ -150,7 +150,7 @@ class ConsoleInterface:
         print("Поиск записей:")
         print("Введите данные для поиска в формате: фильтр=значение, если параметр не один, через запятую")
         print("Поддерживаемые фильтры: id, last_name, first_name, middle_name, organization, work_phone, personal_phone")
-        search_data = input("Введите данные для поиска: ")
+        search_data: str = input("Введите данные для поиска: ")
 
         search_filters = {}
         search_params = search_data.split(',')
@@ -177,7 +177,7 @@ class ConsoleInterface:
         :return: Действительный телефонный номер.
         """
         while True:
-            phone = input(prompt)
+            phone: str = input(prompt)
             if phone.isdigit() and len(phone) >= 7:
                 return phone
             else:
