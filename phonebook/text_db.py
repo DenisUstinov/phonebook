@@ -1,4 +1,6 @@
 import json
+import csv
+from dataclasses import dataclass, fields
 from typing import List, Dict, Union
 
 
@@ -56,7 +58,7 @@ class DataAccessObject:
         pass
 
 
-class TextDB(DataAccessObject):
+class JsonDB(DataAccessObject):
     def __init__(self):
         self.file_path: str = ''
 
@@ -136,3 +138,9 @@ class TextDB(DataAccessObject):
             lines = file.readlines()
 
         return len(lines)
+
+
+@dataclass
+class CsvDB(DataAccessObject):
+    pass
+
