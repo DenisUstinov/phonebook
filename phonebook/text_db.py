@@ -2,9 +2,11 @@ import json
 import csv
 from dataclasses import dataclass, fields
 from typing import List, Dict, Union
+from abc import ABC, abstractmethod
 
 
-class DataAccessObject:
+class DataAccessObject(ABC):
+    @abstractmethod
     def connect(self, connection_info: str) -> None:
         """
         Инициализирует соединение с базой данных.
@@ -13,6 +15,7 @@ class DataAccessObject:
         """
         pass
 
+    @abstractmethod
     def add_record(self, record: Dict[str, Union[str, int]]) -> None:
         """
         Добавляет новую запись в базу данных.
@@ -21,6 +24,7 @@ class DataAccessObject:
         """
         pass
 
+    @abstractmethod
     def get_records_by_filters(self, filters: Dict[str, Union[str, int]]) -> List[Dict[str, Union[str, int]]]:
         """
         Возвращает список записей, соответствующих заданным фильтрам.
@@ -30,6 +34,7 @@ class DataAccessObject:
         """
         pass
 
+    @abstractmethod
     def get_records(self, num_records_start: int, num_records: int) -> List[Dict[str, Union[str, int]]]:
         """
         Получает определенное количество записей из базы данных.
@@ -40,6 +45,7 @@ class DataAccessObject:
         """
         pass
 
+    @abstractmethod
     def edit_record(self, record_number: int, new_record: Dict[str, Union[str, int]]) -> None:
         """
         Редактирует существующую запись в базе данных.
@@ -49,6 +55,7 @@ class DataAccessObject:
         """
         pass
 
+    @abstractmethod
     def get_records_count(self) -> int:
         """
         Возвращает общее количество записей в базе данных.
